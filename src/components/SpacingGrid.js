@@ -25,9 +25,9 @@ export default function SpacingGrid(props) {
   return (
     <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
-        <Grid container justify="center" spacing="4">
+        <Grid container justify="center" spacing={4}>
           {props.items.map((value) => (
-            <Grid key={value} item>
+            <Grid key={value.id} item>
               <DogViewCard details={value}/>
             </Grid>
           ))}

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SpacingGrid from './SpacingGrid';
-import DogViewCard from './DogViewCard';
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -50,11 +49,15 @@ export default function HomeView(){
         }
         */
 
-        setDogs([{"name":"Cabezona", "description":"Happy dog with blond hair", "url":"https://picsum.photos/200/300", "publishdate":getDateTime()},
-                {"name":"Baltito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/201/303", "publishdate":getDateTime()},
-                {"name":"Nonito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/212/303", "publishdate":getDateTime()},
-                {"name":"Chuli", "description":"Happy dog with blond hair", "url":"https://picsum.photos/210/323", "publishdate":getDateTime()},
-                {"name":"Lobito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/205/302", "publishdate":getDateTime()}])
+        setDogs([{"id":0, "name":"Cabezona", "description":"Happy dog with blond hair", "url":"https://picsum.photos/200/300", "publishdate":getDateTime()},
+                {"id":1,"name":"Baltito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/201/303", "publishdate":getDateTime()},
+                {"id":2,"name":"Nonito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/212/303", "publishdate":getDateTime()},
+                {"id":3,"name":"Chuli", "description":"Happy dog with blond hair", "url":"https://picsum.photos/210/323", "publishdate":getDateTime()},
+                {"id":4,"name":"Lobito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/225/302", "publishdate":getDateTime()},
+                {"id":5,"name":"kiltrito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/211/302", "publishdate":getDateTime()},
+                {"id":6,"name":"Huachupé", "description":"Happy dog with blond hair", "url":"https://picsum.photos/212/302", "publishdate":getDateTime()}
+            
+            ])
     }
 
     useEffect(
@@ -68,13 +71,15 @@ export default function HomeView(){
         <div className={classes.root}>
             <SpacingGrid items={dogs}/>
         </div>
-
+    {/*}
         <div className={classes.storeFront}>      
 
             {dogs.map(dog => <DogViewCard details={dog}/> )}
         
-        </div>;
+        </div>
+    {*/}
         </>
+
 
     );
 }

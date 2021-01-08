@@ -16,6 +16,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
+import useCounter from "../hooks/useCounter.js";
+
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -39,10 +43,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function DogViewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [views, setViews] = React.useState(0);
+  const [views, increment, decrement] = useCounter();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -70,15 +76,24 @@ export default function DogViewCard(props) {
       <CardMedia
         className={classes.media}
         image={props.details.url}
-        title="Paella dish"
+        title={props.details.name}
       />
+
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {props.details.description}
         </Typography>
       </CardContent>
+
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+
+        { views==1 ? " ":
+        <IconButton aria-label="total views">
+          <Typography   color="textSecondary">{views}</Typography>
+        </IconButton>
+        }
+
+        <IconButton aria-label="tap to view" onClick={increment}>
           <VisibilityIcon />
         </IconButton>
         <IconButton aria-label="share">
