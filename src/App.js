@@ -3,14 +3,36 @@ import CustomAppBar from "./components/CustomAppBar.js";
 import HomeView from './components/HomeView.js';
 import Footer from './components/Footer.js';
 import MapView from './components/MapView.js';
+import { BrowserRouter, Route, Switch, Link} from "react-router-dom";
+import DogDetailView from './components/DogDetailView.js';
 
 function App() {
   return (
     <>
-    <CustomAppBar />
-    <HomeView />
-    <MapView />
-    <Footer/>
+    
+    <BrowserRouter>
+      <CustomAppBar />
+        <main>
+           <Switch>
+            <Route exact path="/map">
+              <MapView />
+            </Route>
+            <Route exact path="/dogs/:id">
+              <DogDetailView />
+            </Route>
+            <Route exact path="/">
+              <HomeView />
+            </Route>
+          </Switch>
+        </main>
+      
+      <Footer/>
+    </BrowserRouter>
+    
+    
+    
+
+    
     </>
   );
 

@@ -18,6 +18,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 
 import useCounter from "../hooks/useCounter.js";
 
+import {Link} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +56,9 @@ export default function DogViewCard(props) {
   };
 
   return (
+    
     <Card className={classes.root}>
+
       <CardHeader
 
         avatar={
@@ -73,11 +76,17 @@ export default function DogViewCard(props) {
         title={props.details.name}
         subheader={props.details.publishdate}
       />
-      <CardMedia
-        className={classes.media}
-        image={props.details.url}
-        title={props.details.name}
-      />
+      <Link to={`/dogs/${props.details.id}`}>
+        <CardMedia onClick={
+          ()=>{
+            console.log(props.details.id)
+          }
+        }
+          className={classes.media}
+          image={props.details.url}
+          title={props.details.name}
+        />
+      </Link>
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
