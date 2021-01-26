@@ -1,11 +1,28 @@
 import React, {useState, useEffect} from 'react';
-import DogViewCard from "./DogViewCard.js";
 import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
+import MapView from './MapView.js';
+import { loremIpsum } from "lorem-ipsum";
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+    root:{
+        padding: "30px"
+    },
+    imageDog: {
+      objectFit: "cover",
+      width: "500px",
+      height: "400px"
+      
+    },
+    nameDog:{
+        fontSize: "50px"
+    }
+  }));
 
 
 export default function DogDetailView(){
+    const classes = useStyles();
     const [dog, setDog] = useState("");
     const params = useParams();
     console.log(params); // object containing params
@@ -38,7 +55,7 @@ export default function DogDetailView(){
         }
         */
 
-        setDog({"id":0, "name":"Cabezona", "description":"Happy dog with blond hair", "url":"https://picsum.photos/200/300", "publishdate":getDateTime()})
+        setDog( {"id":0, "name":"Cabezona", "description":loremIpsum({count:1}), "url":"https://picsum.photos/200/300", "publishdate":getDateTime(), "content":loremIpsum({count:5}) });
     }
 
     useEffect(
@@ -48,13 +65,20 @@ export default function DogDetailView(){
     , []);
 
     return (
-        <>
+        <div className={classes.root}>
         <p></p>
         <Link to="/">Volver atrás</Link>
         <p></p>
-        <h1>Perrito {id}</h1>
-        <DogViewCard details= {dog}/>
-        </>
+        <h1 className={classes.nameDog}>{dog.name}</h1>
+        <img  className={classes.imageDog} src={dog.url} width="200" />
+        <p>{dog.description}</p>
+        <p></p>
+        <p></p>
+        <p>Última vez visto:
+        </p>
+        <MapView />
+        <p>{dog.publishdate}</p>
+        </div>
     );
 
 

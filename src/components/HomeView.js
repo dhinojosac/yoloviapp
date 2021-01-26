@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SpacingGrid from './SpacingGrid';
+import { loremIpsum } from "lorem-ipsum";
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -49,13 +50,10 @@ export default function HomeView(){
         }
         */
 
-        setDogs([{"id":0, "name":"Cabezona", "description":"Happy dog with blond hair", "url":"https://picsum.photos/200/300", "publishdate":getDateTime()},
-                {"id":1,"name":"Baltito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/201/303", "publishdate":getDateTime()},
-                {"id":2,"name":"Nonito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/212/303", "publishdate":getDateTime()},
-                {"id":3,"name":"Chuli", "description":"Happy dog with blond hair", "url":"https://picsum.photos/210/323", "publishdate":getDateTime()},
-                {"id":4,"name":"Lobito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/225/302", "publishdate":getDateTime()},
-                {"id":5,"name":"kiltrito", "description":"Happy dog with blond hair", "url":"https://picsum.photos/211/302", "publishdate":getDateTime()},
-                {"id":6,"name":"Huachupé", "description":"Happy dog with blond hair", "url":"https://picsum.photos/212/302", "publishdate":getDateTime()}
+        setDogs([{"id":0, "name":"Cabezona", "description":loremIpsum({count:1}), "url":"https://picsum.photos/200/300", "publishdate":getDateTime(), "content":loremIpsum({count:5})},
+                {"id":1,"name":"Baltito", "description":loremIpsum({count:1}), "url":"https://picsum.photos/201/303", "publishdate":getDateTime(), "content":loremIpsum({count:4})},
+                {"id":2,"name":"Nonito", "description":loremIpsum({count:1}), "url":"https://picsum.photos/212/303", "publishdate":getDateTime(), "content":loremIpsum({count:2})},
+                {"id":3,"name":"Chuli", "description":loremIpsum({count:1}), "url":"https://picsum.photos/210/323", "publishdate":getDateTime(), "content":loremIpsum({count:5})},
             
             ])
     }

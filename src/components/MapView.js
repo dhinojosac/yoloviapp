@@ -10,14 +10,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MapView(){
     const center =   [ -70.606705, -33.416889 ];
-    const zoom = 10;
+    const zoom = 12;
 
     const classes = useStyles();
+    
 
     useMapboxMap({"center": center, "zoom":zoom});    
 
     return <>
-        <div id="map" className={classes.map}></div>
+        <div id="map"  className={classes.map}></div>
     </>;
 
 }

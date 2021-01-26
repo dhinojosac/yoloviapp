@@ -5,6 +5,7 @@ import Footer from './components/Footer.js';
 import MapView from './components/MapView.js';
 import { BrowserRouter, Route, Switch, Link} from "react-router-dom";
 import DogDetailView from './components/DogDetailView.js';
+import AddDogForm from './components/AddDogForm.js';
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
       <CustomAppBar />
         <main>
            <Switch>
-            <Route exact path="/map">
-              <MapView />
+            <Route exact path="/newdog">
+              <AddDogForm />
             </Route>
             <Route exact path="/dogs/:id">
               <DogDetailView />

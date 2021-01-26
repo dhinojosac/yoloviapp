@@ -8,7 +8,9 @@ export default function useMapboxMap(options){
         container: "map",
         style: 'mapbox://styles/mapbox/dark-v10',
         center:  [ 12.567898, 55.67583 ],
-        zoom: 15
+        zoom: 15,
+        dragPan: false,
+        scrollZoom: false
     };
 
     useLayoutEffect(() => {
